@@ -8,12 +8,12 @@ import lombok.*;
 @Setter
 @Data
 
-public class Location {
+public class Address {
 
     private GeocodingResult[] addressComponents;
-    private Coordinates coordinates;
+    private Double[] coordinates;
 
-    private Location(GeocodingResult[] addressComponents, Coordinates coordinates) {
+    private Address(GeocodingResult[] addressComponents, Double[] coordinates) {
         this.addressComponents = addressComponents;
         this.coordinates = coordinates;
     }
