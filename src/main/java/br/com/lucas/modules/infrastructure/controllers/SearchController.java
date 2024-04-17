@@ -1,5 +1,6 @@
 package br.com.lucas.modules.infrastructure.controllers;
 
+import br.com.lucas.modules.domain.Address;
 import br.com.lucas.modules.domain.Places;
 import br.com.lucas.modules.dto.AddressRequest;
 import br.com.lucas.modules.usecases.impl.SearchAddressUseCaseImpl;
@@ -23,6 +24,19 @@ public class SearchController {
     public SearchController(SearchAddressUseCaseImpl createLocation, SearchUseCaseImpl nearbySearchUseCase) {
         this.createLocation = createLocation;
         this.nearbySearchUseCase = nearbySearchUseCase;
+    }
+
+    @GetMapping("/{postalCode}/places")
+    public ResponseEntity<Address> getAddress(@PathVariable String postalCode) {
+        try {
+            AddressRequest dto = new AddressRequest(postalCode);
+            var loc = createLocation.execute(dto);
+            loc.setPlacesList(nearbySearchUseCase.getAllPlaces(loc));
+            return ResponseEntity.ok(loc);
+
+        } catch (IOException | InterruptedException | ApiException e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
 

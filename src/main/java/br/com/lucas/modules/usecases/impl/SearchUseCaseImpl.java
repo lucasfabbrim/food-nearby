@@ -40,7 +40,7 @@ public class SearchUseCaseImpl implements SearchUseCase {
                 var place = new Places();
                 place.setName(jsonObject.getString("name"));
                 place.setVicinity(jsonObject.getString("vicinity"));
-                place.setRating(jsonObject.getDouble("rating"));
+                //place.setRating(jsonObject.getDouble("rating"));
 
                 JSONArray typesArray = jsonObject.getJSONArray("types");
                 String[] categories = new String[typesArray.length()];
@@ -86,8 +86,8 @@ public class SearchUseCaseImpl implements SearchUseCase {
 
         return "https://maps.googleapis.com/maps/api/place/nearbysearch/json" +
                 "?location=" + lat + "," + lng +
-                "&radius=" + 5000 +
-                "&type=restaurant" +
+                "&radius=" + 2000 +
+                "&types=bakery" +
                 "&key=AIzaSyDbNuKhoNDz5-URRQdks6LI0BxnqucK8cs";
     }
 
