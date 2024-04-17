@@ -1,7 +1,9 @@
 package br.com.lucas.modules.usecases.impl;
 
+import br.com.lucas.modules.LocationDTO;
 import br.com.lucas.modules.domain.Coordinates;
 import br.com.lucas.modules.domain.Location;
+import br.com.lucas.modules.exception.LocationNotFoundException;
 import br.com.lucas.modules.infrastructure.gmaps.config.Geocoding;
 import br.com.lucas.modules.usecases.CreateLocationUseCase;
 import com.google.maps.GeoApiContext;
@@ -26,9 +28,9 @@ public class CreateLocationUseCaseImpl implements CreateLocationUseCase {
         this.context = context;
     }
 
-    public ResponseEntity<Location> createLocation(String postalCode) throws IOException, InterruptedException, ApiException {
+    public Location execute(LocationDTO postalCode) throws IOException, InterruptedException, ApiException {
 
-        var result = postalCode;
+        var result = postalCode.postalCode();
         var loc = new Location();
         var coords = new Coordinates();
 
@@ -47,12 +49,9 @@ public class CreateLocationUseCaseImpl implements CreateLocationUseCase {
 
             loc.setAddressComponents(results);
             loc.setCoordinates(coords);
-
-            return ResponseEntity.ok(loc);
-
+            return loc;
         }else{
-
-            return ResponseEntity.notFound().build();
+            throw new LocationNotFoundException();
         }
     }
 
