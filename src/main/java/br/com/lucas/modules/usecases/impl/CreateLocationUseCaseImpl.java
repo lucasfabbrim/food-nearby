@@ -49,6 +49,7 @@ public class CreateLocationUseCaseImpl implements CreateLocationUseCase {
 
             loc.setAddressComponents(results);
             loc.setCoordinates(coords);
+
             return loc;
         }else{
             throw new LocationNotFoundException();

@@ -10,7 +10,7 @@ public class Coordinates{
     private String type;
     private Double[] coordinates;
 
-    private Coordinates(String type, Double[] coordinates){
+    public Coordinates(String type, Double[] coordinates){
         this.type = type;
         this.coordinates = coordinates;
     }
