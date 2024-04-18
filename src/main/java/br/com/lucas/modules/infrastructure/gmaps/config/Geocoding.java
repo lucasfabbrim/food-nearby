@@ -17,7 +17,7 @@ public class Geocoding {
 
         return new GeoApiContext
                         .Builder()
-                        .apiKey("AIzaSyDbNuKhoNDz5-URRQdks6LI0BxnqucK8cs")
+                        .apiKey(".")
                         .build();
     }
 }
