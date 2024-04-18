@@ -88,7 +88,7 @@ public class SearchUseCaseImpl implements SearchUseCase {
                 "?location=" + lat + "," + lng +
                 "&radius=" + 2000 +
                 "&types=restaurant" +
-                "&key=AIzaSyDbNuKhoNDz5-URRQdks6LI0BxnqucK8cs";
+                "&key=?";
     }
 
     @Override
