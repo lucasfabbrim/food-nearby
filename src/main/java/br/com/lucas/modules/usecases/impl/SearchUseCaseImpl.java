@@ -87,7 +87,7 @@ public class SearchUseCaseImpl implements SearchUseCase {
         return "https://maps.googleapis.com/maps/api/place/nearbysearch/json" +
                 "?location=" + lat + "," + lng +
                 "&radius=" + 2000 +
-                "&types=bakery" +
+                "&types=restaurant" +
                 "&key=AIzaSyDbNuKhoNDz5-URRQdks6LI0BxnqucK8cs";
     }
 

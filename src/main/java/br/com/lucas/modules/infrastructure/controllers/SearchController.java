@@ -31,7 +31,7 @@ public class SearchController {
         try {
             AddressRequest dto = new AddressRequest(postalCode);
             var loc = createLocation.execute(dto);
-            loc.setPlacesList(nearbySearchUseCase.getAllPlaces(loc));
+            loc.setPlaces(nearbySearchUseCase.getAllPlaces(loc));
             return ResponseEntity.ok(loc);
 
         } catch (IOException | InterruptedException | ApiException e) {

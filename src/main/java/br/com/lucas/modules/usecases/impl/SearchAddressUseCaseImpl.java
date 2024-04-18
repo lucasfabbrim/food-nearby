@@ -37,7 +37,7 @@ public class SearchAddressUseCaseImpl implements SearchAddressUseCase {
                     results[0].geometry.location.lng
             };
 
-            loc.setAddressComponents(results);
+            loc.setYourAddress(results);
             loc.setCoordinates(coordsJson);
 
             return loc;

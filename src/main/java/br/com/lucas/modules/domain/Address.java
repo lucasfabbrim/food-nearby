@@ -13,14 +13,14 @@ import java.util.List;
 
 public class Address {
 
-    private GeocodingResult[] addressComponents;
+    private GeocodingResult[] yourAddress;
     private Double[] coordinates;
-    private List<Places> placesList;
+    private List<Places> places;
 
     private Address(GeocodingResult[] addressComponents, Double[] coordinates) {
-        this.addressComponents = addressComponents;
+        this.yourAddress = addressComponents;
         this.coordinates = coordinates;
-        this.placesList = new ArrayList<>();
+        this.places = new ArrayList<>();
     }
 
 }
