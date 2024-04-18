@@ -1,1 +1,1 @@
-Geocoding API keys removed.
+Geocoding API keys removed; Create yours on Google API.
